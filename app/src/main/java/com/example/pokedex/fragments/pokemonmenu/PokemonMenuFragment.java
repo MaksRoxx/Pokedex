@@ -1,11 +1,10 @@
-package com.example.pokedex.fragments.menu.pokemonmenu;
+package com.example.pokedex.fragments.pokemonmenu;
 
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -15,10 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.pokedex.R;
-import com.example.pokedex.model.Pokemon;
 import com.example.pokedex.viewmodel.PokemonViewModel;
-
-import java.util.List;
 
 public class PokemonMenuFragment extends Fragment {
     private RecyclerView rv;

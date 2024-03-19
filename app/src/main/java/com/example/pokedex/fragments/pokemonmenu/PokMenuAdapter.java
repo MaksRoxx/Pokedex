@@ -1,5 +1,6 @@
-package com.example.pokedex.fragments.menu.pokemonmenu;
+package com.example.pokedex.fragments.pokemonmenu;
 
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -7,6 +8,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.pokedex.R;
@@ -51,9 +54,15 @@ public class PokMenuAdapter extends RecyclerView.Adapter<PokMenuAdapter.PokemonV
     @Override
     public void onBindViewHolder(@NonNull PokemonViewHolder holder, int position) {
         Pokemon pokemon = pokemonList.get(position);
-        holder.tvNumber.setText(pokemon.id);
+        holder.tvNumber.setText("№ "+pokemon.id.toString());
         holder.tvName.setText(pokemon.name);
         Picasso.get().load(pokemon.image).into(holder.ivPokemon);
+        holder.itemView.setOnClickListener(view -> {
+            Bundle bundle = new Bundle();
+            bundle.putSerializable("pokemon", pokemon);
+            NavController controller = Navigation.findNavController(view);
+            controller.navigate(R.id.action_pokemonMenuFragment_to_pokemonCardFragment, bundle);
+        });
     }
 
     @Override

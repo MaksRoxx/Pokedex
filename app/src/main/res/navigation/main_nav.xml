@@ -6,7 +6,7 @@
     app:startDestination="@id/mainMenuFragment">
     <fragment
         android:id="@+id/mainMenuFragment"
-        android:name="com.example.pokedex.fragments.menu.MainMenuFragment"
+        android:name="com.example.pokedex.fragments.MainMenuFragment"
         android:label="fragment_main_menu"
         tools:layout="@layout/fragment_main_menu" />
 </navigation>

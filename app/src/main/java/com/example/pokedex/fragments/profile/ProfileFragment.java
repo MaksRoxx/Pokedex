@@ -1,4 +1,4 @@
-package com.example.pokedex.fragments.menu.profile;
+package com.example.pokedex.fragments.profile;
 
 import android.os.Bundle;
 

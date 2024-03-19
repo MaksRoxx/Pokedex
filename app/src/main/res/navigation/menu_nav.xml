@@ -7,12 +7,25 @@
 
     <fragment
         android:id="@+id/pokemonMenuFragment"
-        android:name="com.example.pokedex.fragments.menu.pokemonmenu.PokemonMenuFragment"
+        android:name="com.example.pokedex.fragments.pokemonmenu.PokemonMenuFragment"
         android:label="fragment_pokemon_menu"
-        tools:layout="@layout/fragment_pokemon_menu" />
+        tools:layout="@layout/fragment_pokemon_menu" >
+        <action
+            android:id="@+id/action_pokemonMenuFragment_to_pokemonCardFragment"
+            app:destination="@id/pokemonCardFragment" />
+    </fragment>
     <fragment
         android:id="@+id/profileFragment"
-        android:name="com.example.pokedex.fragments.menu.profile.ProfileFragment"
+        android:name="com.example.pokedex.fragments.profile.ProfileFragment"
         android:label="fragment_profile"
         tools:layout="@layout/fragment_profile" />
+    <fragment
+        android:id="@+id/pokemonCardFragment"
+        android:name="com.example.pokedex.fragments.card.PokemonCardFragment"
+        android:label="fragment_pokemon_card"
+        tools:layout="@layout/fragment_pokemon_card" >
+        <action
+            android:id="@+id/action_pokemonCardFragment_to_pokemonMenuFragment"
+            app:destination="@id/pokemonMenuFragment" />
+    </fragment>
 </navigation>

@@ -5,10 +5,12 @@ import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
+import java.io.Serializable;
+
 @Entity(tableName = "pokemon")
-public class Pokemon {
+public class Pokemon implements Serializable {
     @PrimaryKey(autoGenerate = true)
-    public int id;
+    public Integer id;
     @ColumnInfo(name = "image")
     public String image;
     @ColumnInfo(name = "name")
