@@ -3,17 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/menu_nav"
-    app:startDestination="@id/pokemonMenuFragment">
+    app:startDestination="@id/pokemonMenuFragment2">
 
-    <fragment
-        android:id="@+id/pokemonMenuFragment"
-        android:name="com.example.pokedex.fragments.pokemonmenu.PokemonMenuFragment"
-        android:label="fragment_pokemon_menu"
-        tools:layout="@layout/fragment_pokemon_menu" >
-        <action
-            android:id="@+id/action_pokemonMenuFragment_to_pokemonCardFragment"
-            app:destination="@id/pokemonCardFragment" />
-    </fragment>
     <fragment
         android:id="@+id/profileFragment"
         android:name="com.example.pokedex.fragments.profile.ProfileFragment"
@@ -25,7 +16,16 @@
         android:label="fragment_pokemon_card"
         tools:layout="@layout/fragment_pokemon_card" >
         <action
-            android:id="@+id/action_pokemonCardFragment_to_pokemonMenuFragment"
-            app:destination="@id/pokemonMenuFragment" />
+            android:id="@+id/action_pokemonCardFragment_to_pokemonMenuFragment2"
+            app:destination="@id/pokemonMenuFragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/pokemonMenuFragment2"
+        android:name="com.example.pokedex.fragments.pokemonmenu.PokemonMenuFragment"
+        android:label="fragment_pokemon_menu"
+        tools:layout="@layout/fragment_pokemon_menu" >
+        <action
+            android:id="@+id/action_pokemonMenuFragment2_to_pokemonCardFragment"
+            app:destination="@id/pokemonCardFragment" />
     </fragment>
 </navigation>

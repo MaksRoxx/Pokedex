@@ -39,7 +39,7 @@ public class PokemonCardFragment extends Fragment {
         bindPokemon(pokemon);
 
         binding.backArrow.setOnClickListener(v -> {
-            Navigation.findNavController(view).navigate(R.id.action_pokemonCardFragment_to_pokemonMenuFragment);
+            Navigation.findNavController(view).navigate(R.id.action_pokemonCardFragment_to_pokemonMenuFragment2);
         });
     }
 

@@ -18,6 +18,7 @@ import android.widget.SearchView;
 import com.example.pokedex.R;
 import com.example.pokedex.model.Pokemon;
 import com.example.pokedex.viewmodel.PokemonViewModel;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.List;
 
@@ -29,7 +30,10 @@ public class PokemonMenuFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_pokemon_menu, container, false);
+        BottomNavigationView bot = (BottomNavigationView) requireActivity().findViewById(R.id.bottomNavigationView);
+        bot.setVisibility(View.VISIBLE);
+        View view = inflater.inflate(R.layout.fragment_pokemon_menu, container, false);
+        return view;
     }
 
     @Override
@@ -37,7 +41,7 @@ public class PokemonMenuFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         rv = view.findViewById(R.id.recView);
         rv.setLayoutManager(new GridLayoutManager(getContext(), 2));
-        adapter = new PokMenuAdapter();
+        adapter = new PokMenuAdapter(getView());
         rv.setAdapter(adapter);
 
         pokemonViewModel = new ViewModelProvider(requireActivity()).get(PokemonViewModel.class);
@@ -52,12 +56,7 @@ public class PokemonMenuFragment extends Fragment {
 
             @Override
             public boolean onQueryTextChange(String newText) {
-                pokemonViewModel.searchPokemon(newText).observe(requireActivity(), new Observer<List<Pokemon>>() {
-                    @Override
-                    public void onChanged(List<Pokemon> pokemons) {
-                        adapter.setPokemonList(pokemons);
-                    }
-                });
+                pokemonViewModel.searchPokemon(newText).observe(requireActivity(), pokemons -> adapter.setPokemonList(pokemons));
                 return true;
             }
         });
